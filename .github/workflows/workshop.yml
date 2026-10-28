@@ -17,6 +17,7 @@ jobs:
         shell: bash
         run: | 
           FILES=$(find . -path './.git' -prune -o -type f -print | wc -l) 
+          MARKDOWN=$(find . -name '*.md' -type f | wc -l) 
           DIRECTORIES=$(find . -path './.git' -prune -o -type d -print | wc -l) 
           BYTES=$(du -sb --exclude=.git . | cut -f1) 
           { 
@@ -25,6 +26,7 @@ jobs:
             echo "| Metric | Value |" 
             echo "|---|---:|" 
             echo "| Files | $FILES |" 
+            echo "| Markdown Files | $MARKDOWN |"
             echo "| Directories | $DIRECTORIES |" 
             echo "| Total bytes | $BYTES |" 
             echo "" 
