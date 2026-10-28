@@ -1,0 +1,38 @@
+---
+#########################
+#########################
+## GitHub Demo Workflow #
+#########################
+#########################
+name: Github Actions Workshop
+
+#
+# Documentation:
+# https://help.github.com/en/articles/workflow-syntax-for-github-actions
+#
+
+#################################
+# Start the job on dispatch     #
+#################################
+on:
+  workflow_dispatch:
+
+###############
+# Set the Job #
+###############
+jobs:
+  hello:
+    # Name the Job
+    name: Say hello job
+    # Set the agent to run on
+    runs-on: ubuntu-latest
+
+    ##################
+    # Load all steps #
+    ##################
+    steps:
+      ##########################
+      # Will say hello back    #
+      ##########################
+      - name: Say hello
+        run: echo "Helo from GitHub Actions!"
