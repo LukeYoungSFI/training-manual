@@ -17,22 +17,22 @@ name: Github Actions Workshop
 on:
   workflow_dispatch:
 
+permissions: 
+  contents: read
+
 ###############
 # Set the Job #
 ###############
 jobs:
-  hello:
-    # Name the Job
-    name: Say hello job
-    # Set the agent to run on
+  explore:
     runs-on: ubuntu-latest
-
-    ##################
-    # Load all steps #
-    ##################
     steps:
-      ##########################
-      # Will say hello back    #
-      ##########################
-      - name: Say hello
-        run: echo "Helo from GitHub Actions!"
+      #uses: calls a MarketplaCE ACTION - THIS ONE CLONES YOUR REPO
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Explore the repo
+        run: |
+          echo "RUnner directory: $PWD"
+          echo "Repository files:"
+          find . -maxdepth 2 -type f | sort
