@@ -1,0 +1,12 @@
+name: Github Actions Workshop 2
+
+on: 
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  metrics: 
+    runs-on: ubuntu-latest
+    steps:
